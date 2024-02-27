@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+{% endblock %}
+
+{% block head %}
+<!-- js -->
+<script src="static/js/dashboard.js"></script>
+
+{% endblock %}
+
+
+{% block main %}
+
+    <div class="main_container">
+        <section class="main_screen">
+            <div class="grid-container">
+                <div class="item3">
+                    <img src="static/img/coin.gif" style="width: 30px; height: auto" class="img-fluid" id="coin">
+                    <span id="coin_count" class="coin_count text-light align-self-center "><img src="https://komarev.com/ghpvc/?username=adiagarwalrock" alt="yourusername" /></span>
+                </div>
+                <div class="item4"><span class="quit-icon">&times;</span></div>
+            </div>
+            <div class="main_logo">
+                <!-- ADD TO THE SRC IMG https://getwallpapers.com/wallpaper/full/d/d/9/611714.jpg -->
+                <img id="center_img" src="static/img/Nilesh-Kumar-Mandal.png" alt="center_img">
+            </div>
+            <div class="press-start">
+                <span class="press-start-text" style="color: white;">Press
+                    <span class="space-container">
+                        <span class="space-text">space</span>
+                        <img src="static/img/space-bar.png" alt="Spacebar" id="space_bar">
+                    </span>
+                    to start
+            </div>
+            <div class="game_options_div" hidden>
+                <div class="game_options">
+
+                    <p>Select Destination</p>
+
+                    <label class="cursor ps-4 pt-1">
+                        <input type="radio" class="option-radio" name="answer" value="portfolio" checked>
+                        <span class="custom-icon">Profile Portal</span>
+                    </label>
+                    <label class="cursor ps-4 pt-1">
+                        <input type="radio" class="option-radio" name="answer" value="github">
+                        <span class="custom-icon">GitHub Realm</span>
+                    </label>
+                    <label class="cursor ps-4 pt-1">
+                        <input type="radio" class="option-radio" name="answer" value="linked_in">
+                        <span class="custom-icon">LinkedIn Abyss</span>
+                    </label>
+                    <label class="cursor ps-4 pt-1 pb-1">
+                        <input type="radio" class="option-radio" name="answer" value="bored">
+                        <span class="custom-icon">Scroll of Enchantment</span>
+                    </label>
+
+                </div>
+                <div class="button-container">
+                    <button type="button" id = "btnSubmit" class="quiz_start">Start</button>
+                </div>
+            </div>
+
+            <div class="center_bottom_scroll_icon">
+                <img src="static/img/down-arrow.png" alt="scroll-icon" id="scroll_icon">
+            </div>
+        </section>
+        <!-- <section class="portfolio">
+            
+        </section> -->
+    </div>
+
+{% endblock %}
