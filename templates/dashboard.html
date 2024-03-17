@@ -7,68 +7,461 @@
 {% block head %}
 <!-- js -->
 <script src="static/js/dashboard.js"></script>
-
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
 {% endblock %}
 
 
 {% block main %}
+<div class="main_container">
+    <section class="main_screen">
+        <div class="grid-container">
+            <div class="item3">
+                <img src="static/img/coin.gif" style="width: 30px; height: auto" class="img-fluid" id="coin">
+                <span id="coin_count" class="coin_count text-light align-self-center "><img
+                        src="https://komarev.com/ghpvc/?username=adiagarwalrock" alt="yourusername" /></span>
+            </div>
+            <div class="item4"><span class="quit-icon">&times;</span></div>
+        </div>
+        <div class="main_logo">
+            <!-- ADD TO THE SRC IMG https://getwallpapers.com/wallpaper/full/d/d/9/611714.jpg -->
+            <img id="center_img" src="static/img/Nilesh-Kumar-Mandal.png" alt="center_img">
+        </div>
+        <div class="press-start">
+            <span class="press-start-text" style="color: white;">Press
+                <span class="space-container">
+                    <span class="space-text">space</span>
+                    <img src="static/img/space-bar.png" alt="Spacebar" id="space_bar">
+                </span>
+                to start
+        </div>
+        <div class="game_options_div" hidden>
+            <div class="game_options">
 
-    <div class="main_container">
-        <section class="main_screen">
-            <div class="grid-container">
-                <div class="item3">
-                    <img src="static/img/coin.gif" style="width: 30px; height: auto" class="img-fluid" id="coin">
-                    <span id="coin_count" class="coin_count text-light align-self-center "><img src="https://komarev.com/ghpvc/?username=adiagarwalrock" alt="yourusername" /></span>
+                <p>Select Destination</p>
+
+                <label class="cursor ps-4 pt-1">
+                    <input type="radio" class="option-radio" name="answer" value="portfolio" checked>
+                    <span class="custom-icon">Profile Portal <img src="static/img/star.png" alt="coin" height="15" style="margin-bottom: 5px;"/></span>
+                </label>
+                <label class="cursor ps-4 pt-1">
+                    <input type="radio" class="option-radio" name="answer" value="github">
+                    <span class="custom-icon">GitHub Realm</span>
+                </label>
+                <label class="cursor ps-4 pt-1">
+                    <input type="radio" class="option-radio" name="answer" value="linked_in">
+                    <span class="custom-icon">LinkedIn Abyss</span>
+                </label>
+                <label class="cursor ps-4 pt-1 pb-1">
+                    <input type="radio" class="option-radio" name="answer" value="bored">
+                    <span class="custom-icon">Scroll of Enchantment</span>
+                </label>
+
+            </div>
+            <div class="button-container">
+                <button type="button" id="btnSubmit" class="quiz_start">Start</button>
+            </div>
+        </div>
+
+        <!-- <div class="center_bottom_scroll_icon">
+            <img src="static/img/down-arrow.png" alt="scroll-icon" id="scroll_icon">
+        </div> -->
+    </section>
+
+    <section class="portfolio" hidden>
+        <div id="rock_start_img">
+            <img src="static/img/soil.png" alt="rock_start" class="soil img-fluid">
+        </div>
+        <div class="portfolio_background">
+            <div class="container pt-5">
+                <div class="ps-3">
+                    <div class="container img_and_welcome row bg-white border border-dark border-4">
+                        <div class="col-md-11">
+                            <div class="portfolio_heading">
+                                <span id = "animated-text" class="centered-span float-end">"Meow there traveler! Prepare for a purr-fectly meow-riffic journey through the nostalgia-filled lanes of my portfolio !"</span>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="portfolio_heading">
+                                <!-- img src profile img 	https://www.codedex.io/images/dharma_avatar.png -->
+                                <img src="static/img/giphy.gif" alt="profile_img"
+                                    class="profile_img img-fluid">
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="item4"><span class="quit-icon">&times;</span></div>
-            </div>
-            <div class="main_logo">
-                <!-- ADD TO THE SRC IMG https://getwallpapers.com/wallpaper/full/d/d/9/611714.jpg -->
-                <img id="center_img" src="static/img/Nilesh-Kumar-Mandal.png" alt="center_img">
-            </div>
-            <div class="press-start">
-                <span class="press-start-text" style="color: white;">Press
-                    <span class="space-container">
-                        <span class="space-text">space</span>
-                        <img src="static/img/space-bar.png" alt="Spacebar" id="space_bar">
-                    </span>
-                    to start
-            </div>
-            <div class="game_options_div" hidden>
-                <div class="game_options">
+                <div class="row pt-3">
+                    <!-- Left Grid -->
+                    <div class="col-md-4">
+                        <!-- STATS -->
+                        <div class="col-md-12 deep_blue">
+                            <div class="section">
+                                <div class="text-warning pixel_font">
+                                    <h5 class="ps-3 pt-3 ">Stats</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <!-- https://www.codedex.io/images/dharma_avatar.png -->
+                                        <img src="static/img/avatar.png" alt="profile_img"
+                                            class="img-fluid p-2 ">
+                                    </div>
+                                    <div class="col-md-6 pixel_font text-light mt-3">
+                                        <p class="d-flex pixel_font flex-wrap align-items-center text-light">
+                                            Experience:<img src="static/img/star.png" alt="coin" height="15" />
+                                            <img src="static/img/star.png" alt="coin" height="15" />
+                                            <img src="static/img/halfstar.png" alt="coin" height="15" /> 2.5
+                                            years</p>
+                                        <p class="d-flex pixel_font flex-wrap align-items-center text-light">Age:<img
+                                                src="static/img/coin.gif" alt="coin" height="15" /> 24 </p>
+                                        <p class="d-flex pixel_font flex-wrap align-items-center text-light">Health:<img
+                                                src="static/img/heart.png" alt="heart" height="15" />
+                                            <img src="static/img/heart.png" alt="heart" height="15" />
+                                            <img src="static/img/heart.png" alt="heart" height="15" />
+                                            <img src="static/img/heart.png" alt="heart" height="15" />
+                                            <img src="static/img/heart.png" alt="heart" height="15" />
+                                        </p>
+                                        <!-- <p class="d-flex pixel_font flex-wrap align-items-center text-light">WB
+                                            |+917001160748</p> -->
+                                        <p>
+                                            <a href="#" class="social-icon" style="">
+                                                <img src="static/img/pixel git.png" alt="Social Icon" class=""
+                                                    height="30" width="30" />
+                                            </a>
+                                            <a href="#" class="social-icon">
+                                                <img src="static/img/linkedIn_pixel.png" alt="Social Icon" class=""
+                                                    width="30" />
+                                            </a>
+                                            <a href="#" class="social-icon">
+                                                <img src="static/img/gmail_pixel.png" alt="Social Icon" class=""
+                                                    width="30" />
+                                            </a>
+                                            <a href="#" class="social-icon">
+                                                <img src="static/img/instal_pixel.png" alt="Social Icon" class=""
+                                                    width="30" />
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-3 col-md-12">
+                            <div class="section deep_blue">
+                                <div class="text-warning pixel_font">
+                                    <h5 class="ps-3 pt-3 ">Tech Stacks</h5>
+                                </div>
 
-                    <p>Select Destination</p>
+                                <p class="ps-3 d-flex pixel_font flex-wrap align-items-center text-light pixel_font">
+                                    Languages:
 
-                    <label class="cursor ps-4 pt-1">
-                        <input type="radio" class="option-radio" name="answer" value="portfolio" checked>
-                        <span class="custom-icon">Profile Portal</span>
-                    </label>
-                    <label class="cursor ps-4 pt-1">
-                        <input type="radio" class="option-radio" name="answer" value="github">
-                        <span class="custom-icon">GitHub Realm</span>
-                    </label>
-                    <label class="cursor ps-4 pt-1">
-                        <input type="radio" class="option-radio" name="answer" value="linked_in">
-                        <span class="custom-icon">LinkedIn Abyss</span>
-                    </label>
-                    <label class="cursor ps-4 pt-1 pb-1">
-                        <input type="radio" class="option-radio" name="answer" value="bored">
-                        <span class="custom-icon">Scroll of Enchantment</span>
-                    </label>
+                                    <span class="skill_set" style="background-color: rgb(74, 178, 255);">Python
+                                        3.x</span>
+                                    <span class="skill_set" style="background-color: rgb(240, 101, 41);">Core
+                                        Java</span>
+                                    <span class="skill_set"
+                                        style="background-color: rgb(239, 183, 1);">JavaScript</span>
+                                </p>
 
+                                <p class="ps-3 d-flex pixel_font flex-wrap align-items-center text-light pixel_font">
+                                    Frameworks:
+                                    <span class="skill_set" style="background-color: rgb(72, 191, 145);">Flask</span>
+                                    <span class="skill_set" style="background-color: rgb(4, 79, 136);">Spring
+                                        Boot</span>
+                                    <span class="skill_set" style="background-color: rgb(41, 180, 240);">Django</span>
+                                </p>
+
+                                <p class="ps-3 d-flex pixel_font flex-wrap align-items-center text-light pixel_font">
+                                    Databases:
+                                    <span class="skill_set" style="background-color: rgb(86, 62, 124);">MySQL</span>
+                                    <span class="skill_set" style="background-color: rgb(97, 219, 251);">MongoDB</span>
+                                    <span class="skill_set" style="background-color: rgb(228, 174, 151);">SQLite</span>
+                                </p>
+                                <p class="ps-3 d-flex pixel_font flex-wrap align-items-center text-light pixel_font">
+                                    Cloud:
+                                    <span class="skill_set" style="background-color: rgb(210, 52, 105);">AWS</span>
+                                    <span class="skill_set" style="background-color: rgb(41, 128, 185);">Azure</span>
+                                    <span class="skill_set" style="background-color: rgb(142, 68, 173);">Django</span>
+                                </p>
+                                <p class="ps-3 d-flex pixel_font flex-wrap align-items-center text-light pixel_font">
+                                    Applications:
+                                    <span class="skill_set" style="background-color: rgb(26, 188, 156);">GitLab</span>
+                                    <span class="skill_set" style="background-color: rgb(241, 196, 15);">GitHub</span>
+                                    <span class="skill_set" style="background-color: rgb(231, 76, 60);">Linux</span>
+                                    <span class="skill_set" style="background-color: rgb(39, 174, 96);">Jira</span>
+                                    <span class="skill_set" style="background-color: rgb(155, 89, 182);">Power BI</span>
+                                    <span class="skill_set" style="background-color: rgb(52, 152, 219);">Postman</span>
+                                </p>
+
+                            </div>
+                        </div>
+                        <!-- now playing -->
+                        <div class="pt-3 col-md-12">
+                            <div class="section d-flex flex-column playing_main deep_blue ">
+                                <div class="playing">
+                                    <div class="m-2 player_card">
+
+                                        <div class="d-flex align-content-center flex-wrap">
+                                            <div class="me-auto p-2">
+                                                <span class="pixel_font bg-dark text-light m-2 p-2">
+                                                    <i class="fas fa-music"></i> NOW PLAYING</span>
+                                            </div>
+
+                                            <div class="p-2 pixel_font"><span class="current_time "></span>
+                                                <i class="fas fa-battery-full fa-2x"></i>
+                                            </div>
+                                        </div>
+                                        <marquee behavior="scroll" direction="left" scrollamount="3"
+                                            class="song-name pixel_font text-light fs-4 m-2 p-2"> Cartoon by NCS
+                                        </marquee>
+                                    </div>
+                                </div>
+                                <div class="controls mt-auto">
+                                    <button class="btn previous"><i class="ph-bold ph-skip-back"></i></button>
+                                    <button id="play_pause" class="btn play-pause">
+                                        <i id="play-pause-icon" class="ph-bold ph-play"></i>
+                                    </button>
+                                    <button class="btn next"><i class="ph-bold ph-skip-forward"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Extracurricular Activities -->
+                        <!-- Education -->
+                        <div class="mt-3 col-md-12 pixel_font deep_blue">
+                            <div class="section">
+                                <!-- B. Tech in Computer Science and Engineering -->
+                                <div class="text-warning">
+                                    <h5 class="ps-3 pt-3 ">B. Tech in Computer Science and Engineering</h5>
+                                </div>
+                                <div class="text-info">
+                                    <p class="me-auto ps-3 bd-highlight">Alliance University, Bengaluru
+                                    </p>
+                                    <p class="ps-3">Aug 2017 - Jul 2021</p>
+                                    <p class="ps-3">GPA- (3.5/4.0)</p>
+                                </div>
+
+
+
+                                <!-- Coursework -->
+                                <div class="">
+                                    <h5 class="ps-3 fs-6">Coursework</h5>
+                                </div>
+                                <ul class = "text-light">
+                                    <li>Engineering Mathematics (Probability, Statistics, Calculus)</li>
+                                    <li>Data Mining</li>
+                                    <li>Core JAVA</li>
+                                    <li>Scripting Languages</li>
+                                    <li>Big Data Analytics</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Certifications -->
+                        <div class="mt-3 mb-3 col-md-12 pixel_font deep_blue">
+                            <div class="section">
+
+                                <!-- Coursework -->
+                                <div class="text-warning">
+                                    <h5 class="ps-3 pt-3">Certifications</h5>
+                                </div>
+                                <ul class = "text-light">
+                                    <li>Python Data Structures, COURSERA <p class="text-info"> Jun 2020</p></li>
+                                    <li>Java Programming: Solving Problems with Software, COURSERA<p class="text-info">Jun 2020</p></li>
+                                    <li>Ethics, Technology and Engineering <p class="text-info">Jun 2020</p></li> 
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Grid -->
+                    <div class="col-md-8">
+                        <!-- Work Experience -->
+                        <div class="col-md-12">
+                            <div class="section">
+                                <!-- Your work experience content here -->
+
+                                <!-- Work Experience 2.5 YearsDeveloper -->
+                                <div class="card bg-transparent deep_blue pixel_font">
+                                    <div class="text-warning">
+                                        <h5 class="ps-3 pt-3">Developer</h5>
+                                    </div>
+                                    <div class="text-info">
+                                        <p class="me-auto ps-3 bd-highlight">Tata Consultancy Services (TCS), Bengaluru
+                                        </p>
+                                    </div>
+                                    <div class="text-light">
+
+                                        <ul>
+                                            <li>Enhanced QA Governance procedures by automating workflow processes,
+                                                including
+                                                automated email notifications for non-compliance.</li>
+                                            <li>Integrated Power BI for improved data visualization, utilizing workflows
+                                                and
+                                                APIs to generate insightful reports.</li>
+                                            <li>Developed internal Jira tools for efficient data extraction, aiding
+                                                management
+                                                reporting and visualization.</li>
+                                        </ul>
+                                        <p class="ps-3">Spring Boot, Java, Flask, Python, MySQL, Jira, Linux, GitLab,
+                                            Postman,
+                                            Power Bi</p>
+                                    </div>
+                                    <div class="vertical-text">
+                                        <p>Nov 22 – Current</p>
+                                    </div>
+                                    <!-- <div class="side_bottom">
+                                        <p>Tech Stack</p>
+                                    </div> -->
+                                </div>
+
+                                <!-- Associate Software Engineer -->
+                                <div class="pt-3">
+                                    <div class="card bg-transparent deep_blue pixel_font">
+                                        <div class="text-warning">
+                                            <h5 class="ps-3 pt-3">Associate Software Engineer</h5>
+                                        </div>
+                                        <div class="text-info">
+                                            <p class="me-auto ps-3 bd-highlight">Envestnet, Bengaluru</p>
+                                        </div>
+                                        <div class="vertical-text">
+                                            <p>Aug 21 – Nov 22</p>
+                                        </div>
+                                        <div class="text-light">
+                                            <ul>
+                                                <li>Collaborated with Frontend Team on different components of internal
+                                                    tools to Automate testing by running automation jobs and generating
+                                                    the report.</li>
+                                                <li>Assisted organization by creating multiple APIs for migrating issue
+                                                    tracking to Jira.</li>
+                                                <li>Created APIs for Advanced GUI Automation Service.</li>
+                                                <li>Reduced team’s turnaround time by a large factor through automation
+                                                    of manual services with APIs.</li>
+                                            </ul>
+                                            <p class="ps-3">Spring Boot, Java, Flask, Python, Linux, Windows Remote
+                                                Service, GitLab, Postman, MySQL, MongoDB</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Intern -->
+                                <div class="pt-3">
+
+                                    <div class="card bg-transparent deep_blue pixel_font">
+                                        <div class="text-warning">
+                                            <h5 class="ps-3 pt-3">Intern</h5>
+                                        </div>
+                                        <div class="text-info">
+                                            <p class="me-auto ps-3 bd-highlight">EduFabrica, online</p>
+                                        </div>
+                                        <div class="vertical-text">
+                                            <p>Jun 21 – Aug 22</p>
+                                        </div>
+                                        <div class="text-light">
+                                            <ul>
+                                                <li>Created and hosted platform where students can give exam.</li>
+                                                <li>Teachers can schedule exam as well as create question paper for
+                                                    different subjects.</li>
+                                            </ul>
+                                            <p class="ps-3">HTML, CSS, BOOTSTRAP, MYSQL, PHP, BOOTSTRAP</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="pt-3">
+                                    <div class="card bg-transparent deep_blue pixel_font">
+                                        <div class="text-warning">
+                                            <h5 class="ps-3 pt-3">Research Intern</h5>
+                                        </div>
+                                        <div class="text-info">
+                                            <p class="me-auto ps-3 bd-highlight">National Institute of Technology
+                                                Rourkela</p>
+                                        </div>
+                                        <div class="vertical-text">
+                                            <p>Jun 19 - Jul 19</p>
+                                        </div>
+                                        <div class="text-light">
+                                            <p class="ps-3">CLASSIFICATION OF EMOTION USING EEG SIGNALS ON DEAP DATASET
+                                            </p>
+                                            <ul>
+                                                <li>Learned and developed Machine learning models for predicting
+                                                    different states of emotions by using the DEAP Dataset</li>
+                                                <li>Learned how to write and analyze Research paper</li>
+                                            </ul>
+                                            <p class="ps-3">Python, Jupyter Notebook, Scikit-learn, Pandas, Numpy,
+                                                Matplotlib</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="pt-3">
+                            <div class="card bg-transparent deep_blue pixel_font">
+                                <div class="text-warning">
+                                    <h5 class="ps-3 pt-3">Projects</h5>
+                                </div>
+                                <div class="text-info">
+                                    <p class="me-auto ps-3 fs-6 bd-highlight">Sales Rewards Manager – REWARDS</p>
+                                </div>
+                                <!-- <div class="vertical-text">
+                                    <p>Apr 2022</p>
+                                </div> -->
+                                <div class="text-light">
+                                    <ul>
+                                        <li>Designed and deployed a Django-based Rewards Manager App to track sales by
+                                            sales
+                                            reps, with SMS notifications for successful transactions.</li>
+                                    </ul>
+                                    <p class="ps-3">AWS, Twilio API, Django, Python, MySQL</p>
+                                </div>
+
+                                <div class="text-info">
+                                    <p class="me-auto ps-3 fs-6 bd-highlight">Project Management and Quality control –
+                                        INSIGHT</p>
+                                </div>
+                                <!-- <div class="vertical-text">
+                                    <p>Oct 21- Apr 22</p>
+                                </div> -->
+                                <div class="text-light">
+                                    <ul>
+                                        <li>Created a Full-scale Project management application using Django for an
+                                            Interior
+                                            Design Company.</li>
+                                        <li>The aim is to manage ongoing projects along with providing timely updates to
+                                            the
+                                            client on the progress.</li>
+                                    </ul>
+                                    <p class="ps-3">AWS (EC2, RDS, S3), Flask, Python, MySQL, MongoDB, Docker</p>
+                                </div>
+
+
+                                <div class="text-info">
+                                    <p class="me-auto ps-3 fs-6 bd-highlight">Fantastic Computing Machine - FCM</p>
+                                </div>
+                                <!-- <div class="vertical-text">
+                                    <p>Dec 20 – Jun 21</p>
+                                </div> -->
+                                <div class="text-light">
+                                    <ul>
+                                        <li>Developing a SaaS Platform to deploy Machine Learning Pre-Trained Models and
+                                            to
+                                            provide a sharable link for other users to interact with the model.</li>
+                                    </ul>
+                                    <p class="ps-3">AWS (EC2, RDS, S3), Flask, Python, MySQL, MongoDB, Docker</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="button-container">
-                    <button type="button" id = "btnSubmit" class="quiz_start">Start</button>
-                </div>
             </div>
-
-            <div class="center_bottom_scroll_icon">
-                <img src="static/img/down-arrow.png" alt="scroll-icon" id="scroll_icon">
-            </div>
-        </section>
-        <!-- <section class="portfolio">
-            
-        </section> -->
-    </div>
+        </div>
+        <footer class = "">
+            <div class="text-center p-3 portfolio_footor">
+                Crafted with 8-bit passion
+              </div>
+        </footer>
+    </section>
+</div>
 
 {% endblock %}

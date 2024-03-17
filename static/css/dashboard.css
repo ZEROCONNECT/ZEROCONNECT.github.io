@@ -23,8 +23,8 @@ html
 
   .main_container
   {
-    scroll-snap-type: y mandatory;
-    overflow-y: hidden;
+    /* scroll-snap-type: y mandatory; */
+    /* overflow-y: hidden; */
     height: 100vh;
   }
   
@@ -120,7 +120,7 @@ html
 .center_bottom_scroll_icon
 {
     bottom: 0;
-    left: 50%;
+    left: 48%;
     padding-bottom: 10px;
     position: absolute;
     cursor: url('hover.png'), auto;
@@ -273,3 +273,220 @@ html
   color:#b6291f;
   cursor: url('hover.png'), auto;
 }
+
+/* .soil
+{
+  background-size: cover;
+} */
+
+#rock_start_img
+{
+  background: url("soil.png") repeat-x ;
+  background-size: cover;
+}
+
+.portfolio_background
+{
+  background-color: #28466c;
+}
+
+.profile_img
+{
+  /* width: 75px; */
+  height: 75px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /* right alligned */
+  float: left;
+  cursor: url('hover.png'), auto;
+}
+
+.img_and_welcome
+{
+  text-align: center;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 10px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; 
+}
+
+.vertical-text
+{
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: #ffffff;
+  cursor: url('hover.png'), auto;
+  position: absolute;
+    top: 10px;
+    left: 100%;
+    font-family: "Work Sans", sans-serif !important;
+    border-top: 3px solid rgb(10, 19, 30);
+    border-right: 3px solid rgb(10, 19, 30);
+    border-bottom: 3px solid rgb(10, 19, 30);
+    border-image: initial;
+    border-left: none;
+    font-size: 15px !important;
+    padding-top: 10px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    width: 25px;
+    transition-duration: 0.2s;
+}
+
+.right-vertical-text
+{
+  
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: #ffffff;
+  cursor: url('hover.png'), auto;
+  position: absolute;
+    top: 10px;
+    left: 100%;
+    font-family: "Work Sans", sans-serif !important;
+    border-top: 3px solid rgb(10, 19, 30);
+    border-left: 3px solid rgb(10, 19, 30);
+    border-bottom: 3px solid rgb(10, 19, 30);
+    border-image: initial;
+    border-right: none;
+    font-size: 15px !important;
+    padding-top: 10px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    width: 25px;
+    transition-duration: 0.2s;
+}
+
+.side_bottom
+{
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: #ffffff;
+  cursor: url('hover.png'), auto;
+  position: absolute;
+    bottom: 10px;
+    left: 100%;
+    font-family: "Work Sans", sans-serif !important;
+    border-top: 3px solid rgb(10, 19, 30);
+    border-right: 3px solid rgb(10, 19, 30);
+    border-bottom: 3px solid rgb(10, 19, 30);
+    border-image: initial;
+    border-left: none;
+    font-size: 15px !important;
+    padding-top: 10px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    width: 25px;
+    transition-duration: 0.2s;
+}
+
+
+
+.deep_blue
+{
+  border:3px solid rgb(10, 19, 30)
+}
+
+.pixel_font
+{
+  font-family: "Press Start 2P", system-ui;
+  font-size: 10px;
+}
+
+.skill_set
+{
+  padding: 6px 10px 4px 10px;
+    border-radius: 20px;
+    color: white;
+    margin: 2px;
+    font-size: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* music player css */
+.btn {
+  background-color: transparent;
+  color: white;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.controls {
+  bottom: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+
+.btn:hover {
+  color: rgb(0, 255, 106);
+}
+
+.playing {
+  text-align: center;
+}
+
+
+/* css end */
+.playing_main
+{
+  /* background: url("pplaying_bg") no-repeat center center; */
+  background-size: cover;
+  height: 180px;
+  background-image: url(playing_bg.jpg);
+  background-position: -120px -85px;
+  padding: 0px !important;
+}
+
+.current_time
+{
+  font-size: 13px;
+}
+
+/* .player_card
+{
+  background-color: rgb(71, 175, 222, 0.7);
+  border: 2px solid #000000;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #000000;
+} */
+
+.marquee {
+  flex: 0 0 auto;
+  min-width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  animation: scroll var(--duration) linear var(--delay) var(--iteration-count);
+  animation-play-state: var(--play);
+  animation-delay: var(--delay);
+  animation-direction: var(--direction);
+}
+
+.portfolio_footor
+{
+  background-color: #28466c;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 10px;
+  cursor: url('hover.png'), auto;
+}
+
+/* .song-name
+{
+  animation: marquee 5s linear infinite;
+  
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+} */
