@@ -188,8 +188,11 @@ document.addEventListener('keydown', function (event) {
                 url = 'https://github.com/zeroconnect';
                 break;
             case 'portfolio':
-                // url = 'https://yourportfolio.com';
-                break;
+                    const portfolioSection = document.querySelector('.portfolio');
+                    portfolioSection.hidden = false;
+                    // scroll to the portfolio section
+                    portfolioSection.scrollIntoView({ behavior: 'smooth' });
+                    break;
             case 'linked_in':
                 url = 'https://www.linkedin.com/in/yourusername/';
                 break;
