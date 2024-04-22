@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     url = 'https://www.linkedin.com/in/nileshkm/';
                     break;
                 case 'bored':
-                    url = '/static/documents/NileshKM-Resume.pdf';
+                    url = '/static/documents/NileshCV.pdf';
                     break;
                 case 'portfolio':
                     const portfolioSection = document.querySelector('.portfolio');
@@ -206,7 +206,7 @@ document.addEventListener('keydown', function (event) {
             if (selectedRadio === 'bored') {
                 var link = document.createElement('a');
                 link.href = url;
-                link.download = 'NileshKM-Resume.pdf'; // replace with the name you want the downloaded file to have
+                link.download = 'NileshCV.pdf'; // replace with the name you want the downloaded file to have
                 link.style.display = 'none';
                 document.body.appendChild(link);
                 link.click();
