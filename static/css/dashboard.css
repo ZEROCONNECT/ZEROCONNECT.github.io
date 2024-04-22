@@ -40,7 +40,8 @@ section {
 }
 
 .main_screen {
-  background: url("bimag.jpg") no-repeat center center;
+  /* background: url("bimag.jpg") no-repeat center center; */
+  background: url("gifback.gif") no-repeat center center;
   height: 100vh;
   background-size: cover;
 }
@@ -93,7 +94,7 @@ section {
 
 .press-start {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 5vh;
 }
 
 
@@ -367,6 +368,11 @@ section {
   border-bottom-right-radius: 12px;
   width: 25px;
   transition-duration: 0.2s;
+}
+
+.normal-text {
+  font-family: "Work Sans", sans-serif !important;
+
 }
 
 .right-vertical-text {
