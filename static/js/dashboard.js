@@ -20,16 +20,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to add one letter at a time
     let i = 0;
+    let animationStarted = false;
+    
     function animateText() {
         if (i < text.length) {
             textElement.textContent += text.charAt(i);
             i++;
-            setTimeout(animateText, 70); // adjust the speed of animation here
+            setTimeout(animateText, 50); // Slightly faster animation
         }
     }
 
-    // Start the animation
-    animateText();
+    // Function to start animation when portfolio section is visible
+    function startCatMessageAnimation() {
+        if (!animationStarted) {
+            animationStarted = true;
+            animateText();
+        }
+    }
+
+    // Intersection Observer to detect when portfolio section is visible
+    const portfolioSection = document.querySelector('.portfolio');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCatMessageAnimation();
+            }
+        });
+    }, {
+        threshold: 0.3 // Start animation when 30% of portfolio section is visible
+    });
+
+    if (portfolioSection) {
+        observer.observe(portfolioSection);
+    }
+
+    // Add click handler for scroll down indicator
+    const scrollIndicator = document.querySelector('.scroll-down-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            portfolioSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 
     // music player js
     const cartoonAudio = new Audio('static/music/Cartoon.mp3');
@@ -137,13 +168,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     url = 'https://www.linkedin.com/in/nileshkm/';
                     break;
                 case 'bored':
-                    url = '/static/documents/NileshCV.pdf';
+                    url = './NileshCV.pdf';
                     break;
                 case 'portfolio':
                     const portfolioSection = document.querySelector('.portfolio');
                     portfolioSection.hidden = false;
                     // scroll to the portfolio section
                     portfolioSection.scrollIntoView({ behavior: 'smooth' });
+                    break;
+                case 'contact':
+                    $('#contactModal').modal('show');
                     break;
             }
 
@@ -194,11 +228,14 @@ document.addEventListener('keydown', function (event) {
                 // scroll to the portfolio section
                 portfolioSection.scrollIntoView({ behavior: 'smooth' });
                 break;
+            case 'contact':
+                $('#contactModal').modal('show');
+                break;
             case 'linked_in':
                 url = 'https://www.linkedin.com/in/yourusername/';
                 break;
             case 'bored':
-                url = '/static/documents/NileshCV.pdf';
+                url = './NileshCV.pdf';
                 break;
         }
 
@@ -231,4 +268,161 @@ window.addEventListener('keydown', function (e) {
 function closeWindow() {
     window.close();
 }
+
+function exploreMore() {
+    // Scroll to portfolio section
+    const portfolioSection = document.querySelector('.portfolio');
+    portfolioSection.hidden = false;
+    portfolioSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Email sending functionality
+function sendMessage() {
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const subject = document.getElementById('contactSubject').value;
+    const message = document.getElementById('contactMessage').value;
+    
+    if (!name || !email || !subject || !message) {
+        alert('Please fill in all fields!');
+        return;
+    }
+    
+    // Create mailto link
+    const mailtoLink = `mailto:s.nileshkm@gmail.com?subject=${encodeURIComponent('Portfolio Contact: ' + subject)}&body=${encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    )}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Close modal and show success message
+    $('#contactModal').modal('hide');
+    
+    // Clear form
+    document.getElementById('contactForm').reset();
+    
+    // Show success notification (you could enhance this with a better notification system)
+    setTimeout(() => {
+        alert('Thank you for your message! Your email client should open with the pre-filled message.');
+    }, 500);
+}
+
+// Cat Chatbot Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatPanel = document.getElementById('chatPanel');
+    const chatClose = document.getElementById('chatClose');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatNotification = document.getElementById('chatNotification');
+    
+    let isChatOpen = false;
+    
+    // Array of different meow responses
+    const meowResponses = [
+        "Meow! 🐾",
+        "Meow meow! 😸",
+        "Meoooow~ 🐱",
+        "Meow? 🤔",
+        "Meow meow meow! 😻",
+        "*purrs* Meow! 😽",
+        "Meow! *head bonk* 🐾",
+        "Mrow mrow! 😼",
+        "Meow meow purr~ 💕",
+        "*stretches* Meooow! 😺",
+        "Prrrr meow! 🥰",
+        "Meow! *tail swish* 😸",
+        "Chirp meow! 🐾",
+        "*blinks slowly* Meow... 😌",
+        "Meow meow! *kneads air* 😻"
+    ];
+    
+    // Toggle chat panel
+    function toggleChat() {
+        isChatOpen = !isChatOpen;
+        if (isChatOpen) {
+            chatPanel.classList.add('open');
+            chatNotification.style.display = 'none';
+            chatInput.focus();
+        } else {
+            chatPanel.classList.remove('open');
+        }
+    }
+    
+    // Add message to chat
+    function addMessage(text, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('chat-message');
+        messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+        
+        const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        if (isUser) {
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <div class="message-text">${text}</div>
+                    <div class="message-time">${currentTime}</div>
+                </div>
+            `;
+        } else {
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <img src="static/img/giphy.gif" alt="Cat" class="message-cat">
+                </div>
+                <div class="message-content">
+                    <div class="message-text">${text}</div>
+                    <div class="message-time">${currentTime}</div>
+                </div>
+            `;
+        }
+        
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Get random meow response
+    function getRandomMeow() {
+        return meowResponses[Math.floor(Math.random() * meowResponses.length)];
+    }
+    
+    // Send message
+    function sendMessage() {
+        const message = chatInput.value.trim();
+        if (message === '') return;
+        
+        // Add user message
+        addMessage(message, true);
+        chatInput.value = '';
+        
+        // Show typing indicator briefly, then respond with meow
+        setTimeout(() => {
+            addMessage(getRandomMeow(), false);
+        }, 500 + Math.random() * 1000); // Random delay between 500-1500ms
+    }
+    
+    // Event listeners
+    chatbotToggle.addEventListener('click', toggleChat);
+    chatClose.addEventListener('click', toggleChat);
+    chatSend.addEventListener('click', sendMessage);
+    
+    chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+    
+    // Show notification periodically
+    setInterval(() => {
+        if (!isChatOpen) {
+            chatNotification.style.display = 'flex';
+            setTimeout(() => {
+                if (!isChatOpen) {
+                    chatNotification.style.display = 'none';
+                }
+            }, 3000);
+        }
+    }, 30000); // Show notification every 30 seconds
+});
 

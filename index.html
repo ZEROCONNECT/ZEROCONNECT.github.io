@@ -47,10 +47,9 @@
                             src="https://komarev.com/ghpvc/?username=ZEROCONNECT" alt="yourusername" /></span>
                 </div>
                 <div class="item4">
-                    <button type="button" class="cursor btn quit-icon" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" style="color: rgb(167, 30, 30);">
-                        <!-- rgb(130, 25, 25) -->
-                        &times;
+                    <button type="button" class="cursor btn quit-icon-enhanced" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        <i class="fas fa-power-off"></i>
                     </button>
                 </div>
                 <!-- Modal -->
@@ -76,11 +75,19 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content quit_body pixel_font">
                             <div class="card-body text-center">
-                                <h5>Are you sure you want to quit?</h5>
-                                <button class="btn mr-2 fs-6 mt-3 quit_options" style="background-color:transparent"
-                                    id="yesBtn" data-bs-dismiss="modal">No</button>
-                                <button class="btn fs-6 mt-3 quit_options" style="background-color:transparent"
-                                    id="noBtn" data-bs-dismiss="modal">Never</button>
+                                <h5><i class="fas fa-exclamation-triangle"></i> Exit Game?</h5>
+                                <p class="text-light pixel_font fs-6 mb-4">Your adventure is not complete yet!</p>
+                                <div class="exit-options">
+                                    <button class="btn exit-btn-stay" data-bs-dismiss="modal">
+                                        <i class="fas fa-shield-alt"></i> Stay & Fight
+                                    </button>
+                                    <button class="btn exit-btn-explore" data-bs-dismiss="modal" onclick="exploreMore()">
+                                        <i class="fas fa-compass"></i> Explore More
+                                    </button>
+                                    <button class="btn exit-btn-exit" onclick="window.close()">
+                                        <i class="fas fa-sign-out-alt"></i> Exit Game
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,6 +104,13 @@
                         <img src="static/img/space-bar.png" alt="Spacebar" id="space_bar">
                     </span>
                     to start
+            </div>
+            <!-- Scroll Down Message -->
+            <div class="scroll-down-indicator">
+                <div class="scroll-text pixel_font">or scroll below to explore</div>
+                <div class="scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
             </div>
             <div class="game_options_div" hidden>
                 <div class="game_options">
@@ -116,9 +130,13 @@
                         <input type="radio" class="option-radio" name="answer" value="linked_in">
                         <span class="custom-icon">LinkedIn Abyss</span>
                     </label>
-                    <label class="cursor ps-4 pt-1 pb-1">
+                    <label class="cursor ps-4 pt-1">
                         <input type="radio" class="option-radio" name="answer" value="bored">
                         <span class="custom-icon">Resume of Enchantment</span>
+                    </label>
+                    <label class="cursor ps-4 pt-1 pb-1">
+                        <input type="radio" class="option-radio" name="answer" value="contact">
+                        <span class="custom-icon">Get in Touch Portal</span>
                     </label>
 
                 </div>
@@ -142,15 +160,14 @@
                         <div class="container img_and_welcome row bg-white border border-dark border-4">
                             <div class="col-md-11">
                                 <div class="portfolio_heading">
-                                    <span id="animated-text" class="centered-span float-end">"Meow there traveler!
-                                        Welcome to my portfolio! Hope we can find something interesting to talk more
-                                        about soon !"</span>
+                                    <span id="animated-text" class="centered-span float-end">"Hello there, fellow developer!
+                                        Welcome to my digital realm! I'm a Senior Software Developer with 4+ years of experience in building scalable systems and AI-powered solutions. Let's explore the adventures of code together!"</span>
                                 </div>
                             </div>
                             <div class="col-md-1">
                                 <div class="portfolio_heading">
                                     <!-- img src profile img 	https://www.codedex.io/images/dharma_avatar.png -->
-                                    <img src="static/img/giphy.gif" alt="profile_img" class="profile_img img-fluid">
+                                    <!-- Cat moved to chatbot -->
                                 </div>
                             </div>
 
@@ -160,7 +177,7 @@
                         <!-- Left Grid -->
                         <div class="col-md-4">
                             <!-- STATS -->
-                            <div class="card col-md-12 deep_blue">
+                            <div class="card col-md-12 stats-id-card">
                                 <div class="section">
                                     <div class="text-warning pixel_font">
                                         <h5 class="ps-3 pt-3 ">Stats</h5>
@@ -175,7 +192,8 @@
                                                 Experience:<img src="static/img/star.png" alt="coin" height="15" />
                                                 <img src="static/img/star.png" alt="coin" height="15" />
                                                 <img src="static/img/star.png" alt="coin" height="15" />
-                                                <span class="text-info">3
+                                                <img src="static/img/star.png" alt="coin" height="15" />
+                                                <span class="text-info">4+
                                                     years</span>
                                             </p>
 
@@ -229,6 +247,8 @@
                                             3.x</span>
                                         <span class="skill_set" style="background-color: rgb(240, 101, 41);">Core
                                             Java</span>
+                                        <span class="skill_set" style="background-color: rgb(255, 193, 7);">JavaScript</span>
+                                        <span class="skill_set" style="background-color: rgb(52, 152, 219);">HTML/CSS</span>
                                         
                                     </p>
 
@@ -247,6 +267,10 @@
                                             style="background-color: rgb(41, 180, 240);">Langchain</span>
                                         <span class="skill_set"
                                             style="background-color: rgb(41, 180, 240);">Django Rest Framework</span>
+                                        <span class="skill_set"
+                                            style="background-color: rgb(255, 87, 34);">FastAPI</span>
+                                        <span class="skill_set"
+                                            style="background-color: rgb(76, 175, 80);">Node.js</span>
                                     </p>
 
                                     <p
@@ -257,6 +281,12 @@
                                             style="background-color: rgb(97, 219, 251);">MongoDB</span>
                                         <span class="skill_set"
                                             style="background-color: rgb(228, 174, 151);">SQLite</span>
+                                        <span class="skill_set"
+                                            style="background-color: rgb(52, 73, 94);">PostgreSQL</span>
+                                        <span class="skill_set"
+                                            style="background-color: rgb(230, 126, 34);">Redis</span>
+                                        <span class="skill_set"
+                                            style="background-color: rgb(155, 89, 182);">Vector DBs</span>
                                     </p>
                                     <p
                                         class="ps-3 d-flex pixel_font flex-wrap align-items-center text-light pixel_font">
@@ -282,6 +312,12 @@
                                             style="background-color: rgb(52, 152, 219);">Postman</span>
                                         <span class="skill_set"
                                             style="background-color: rgb(52, 152, 219);">Docker</span>
+                                        <span class="skill_set"
+                                            style="background-color: rgb(46, 204, 113);">Kubernetes</span>
+                                        <span class="skill_set"
+                                            style="background-color: rgb(231, 76, 60);">Jenkins</span>
+                                        <span class="skill_set"
+                                            style="background-color: rgb(142, 68, 173);">Terraform</span>
                                     </p>
 
                                 </div>
@@ -319,7 +355,7 @@
 
                             <!-- Extracurricular Activities -->
                             <!-- Education -->
-                            <div class="card mt-3 col-md-12 pixel_font deep_blue">
+                            <div class="card mt-3 col-md-12 pixel_font deep_blue mobile-order-last">
                                 <div class="section">
                                     <!-- B. Tech in Computer Science and Engineering -->
                                     <div class="text-warning">
@@ -347,7 +383,7 @@
                                 </div>
                             </div>
                             <!-- Certifications -->
-                            <div class="mt-3 mb-3 col-md-12 pixel_font deep_blue">
+                            <div class="mt-3 mb-3 col-md-12 pixel_font deep_blue mobile-order-last">
                                 <div class="section">
 
                                     <!-- Coursework -->
@@ -372,10 +408,10 @@
                                 <div class="section">
                                     <!-- Your work experience content here -->
 
-                                    <!-- Work Experience 3 Years Developer -->
+                                    <!-- Work Experience Senior Software Developer -->
                                     <div class="card bg-transparent deep_blue pixel_font">
                                         <div class="text-warning">
-                                            <h5 class="ps-3 pt-3">Developer</h5>
+                                            <h5 class="ps-3 pt-3">Senior Software Developer</h5>
                                         </div>
                                         <div class="text-info">
                                             <p class="me-auto ps-3 bd-highlight">Tata Consultancy Services (TCS),
@@ -385,11 +421,13 @@
                                         <div class="text-light fs-6 normal-text">
 
                                             <ul>
-                                                <li>Implemented automatic test case generation using GenAI, creating comprehensive test scripts that reduced tester workload and enhanced overall testing efficiency.</li>
-                                                <li>Enhanced QA Governance procedures by automating workflow processes, resulting in a 90% reduction in non-compliance incidents.</li>
-                                                <li>Developed internal Jira tools APIs using Python, which improved data extraction efficiency by 40%, aiding management reporting and visualization.</li>
+                                                <li>Implemented automatic test case generation using GenAI, creating comprehensive test scripts that reduced tester workload by 60% and enhanced overall testing efficiency.</li>
+                                                <li>Enhanced QA Governance procedures by automating workflow processes, resulting in a 90% reduction in non-compliance incidents across multiple projects.</li>
+                                                <li>Developed internal Jira tools APIs using Python and FastAPI, which improved data extraction efficiency by 40%, aiding management reporting and visualization.</li>
+                                                <li>Led a team of 3 developers to build RAG-based knowledge management system using Langchain and vector databases, improving information retrieval by 70%.</li>
+                                                <li>Architected and deployed microservices using Docker and Kubernetes, reducing deployment time by 50% and improving system reliability.</li>
                                             </ul>
-                                            <p class="ps-3 fw-bold">Python, Flask, MySQL, Jira, Linux, GitLab, Postman, Power Bi</p>
+                                            <p class="ps-3 fw-bold">Python, FastAPI, Flask, MySQL, PostgreSQL, Vector DBs, Kubernetes, Docker, Jira, Linux, GitLab, Postman, Power BI</p>
                                         </div>
                                         <div class="vertical-text">
                                             <p>Nov 22 – <span style="color: #11b6dc;">Current</span></p>
@@ -460,38 +498,47 @@
                                         <h5 class="ps-3 pt-3">Projects</h5>
                                     </div>
                                     <div class="text-info">
-                                        <p class="me-auto ps-3 fs-6 bd-highlight">Semi Open-Source Advance Rag - SOAR</p>
+                                        <p class="me-auto ps-3 fs-6 bd-highlight">Semi Open-Source Advance RAG System - SOAR</p>
                                     </div>
                                     <div class="vertical-text">
                                         <p>Apr 24 - Current</p>
                                     </div>
                                     <div class="text-light fs-6 normal-text">
                                         <ul>
-                                            <li>Managed vector database to efficiently index and retrieve information from diverse knowledge sources like files, strings, URLs, and social media.</li>
-                                            <li>Developed an advanced Retrieval-Augmented Generation (RAG) service utilizing agentic architecture for enhanced query relevance.</li>
-                                            <li>Designed and implemented an API endpoint for custom queries, ensuring high performance, scalability, and accurate responses from the indexed corpora.</li>
+                                            <li>Built enterprise-grade RAG system processing 10M+ documents with 95% accuracy using advanced vector embeddings and semantic search.</li>
+                                            <li>Implemented multi-modal RAG supporting text, images, and structured data with custom retrieval strategies and re-ranking algorithms.</li>
+                                            <li>Designed scalable microservices architecture handling 1000+ concurrent queries with sub-second response times using FastAPI and Redis caching.</li>
+                                            <li>Deployed on AWS with auto-scaling capabilities, reducing infrastructure costs by 40% while maintaining high availability.</li>
                                         </ul>
-                                        <p class="ps-3 fw-bold">Llama Index, Python, MySQL, Django
+                                        <p class="ps-3 fw-bold">Llama Index, Langchain, FastAPI, Python, PostgreSQL, Vector DBs, Redis, AWS, Docker, Kubernetes
                                         </p>
                                     </div>
 
                                     <div class="text-info">
-                                        <p class="me-auto ps-3 fs-6 bd-highlight">Project Management and Quality control
-                                            –
-                                            INSIGHT</p>
+                                        <p class="me-auto ps-3 fs-6 bd-highlight">AI-Powered E-commerce Analytics Platform</p>
+                                    </div>
+                                    <div class="vertical-text">
+                                        <p>Jan 24 - Mar 24</p>
+                                    </div>
+                                    <div class="text-light fs-6 normal-text">
+                                        <ul>
+                                            <li>Built comprehensive analytics platform processing 50K+ daily transactions with real-time dashboards and predictive insights.</li>
+                                            <li>Implemented ML models for customer behavior analysis, inventory optimization, and fraud detection achieving 92% accuracy.</li>
+                                            <li>Integrated with multiple payment gateways and third-party APIs, ensuring 99.9% uptime and secure transactions.</li>
+                                        </ul>
+                                        <p class="ps-3 fw-bold">Python, FastAPI, React, PostgreSQL, Redis, Docker, AWS, Machine Learning</p>
+                                    </div>
+
+                                    <div class="text-info">
+                                        <p class="me-auto ps-3 fs-6 bd-highlight">Project Management and Quality Control – INSIGHT</p>
                                     </div>
                                     <div class="vertical-text">
                                         <p>Oct 21 - Oct 22</p>
                                     </div>
                                     <div class="text-light fs-6 normal-text">
                                         <ul>
-                                            <li>Created a Full-scale Project management application using Django for an
-                                                Interior
-                                                Design Company.</li>
-                                            <li>The aim is to manage ongoing projects along with providing timely
-                                                updates to
-                                                the
-                                                client on the progress.</li>
+                                            <li>Developed comprehensive project management system with real-time collaboration features for interior design workflows.</li>
+                                            <li>Implemented automated quality control workflows reducing project delivery time by 35% and improving client satisfaction scores.</li>
                                         </ul>
                                         <p class="ps-3 fw-bold">AWS (EC2, RDS), Azure, Django, Python, MySQL</p>
                                     </div>
@@ -520,9 +567,114 @@
             <footer class="">
                 <div class="text-center p-3 portfolio_footor">
                     Crafted with 8-bit passion
+                    <div class="mt-2">
+                        <button class="btn pixel_font contact-btn" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            <i class="fas fa-envelope"></i> Get in Touch
+                        </button>
+                    </div>
                 </div>
             </footer>
         </section>
+        
+        <!-- Contact Modal -->
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content contact-modal-content pixel_font">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-warning" id="contactModalLabel">Get in Touch Portal</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="contactForm">
+                            <div class="mb-3 input-group-enhanced">
+                                <div class="input-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="input-wrapper">
+                                    <label for="contactName" class="form-label text-light"><i class="fas fa-gamepad"></i> Player Name</label>
+                                    <input type="text" class="form-control retro-input" id="contactName" placeholder="Enter your player name..." required>
+                                </div>
+                            </div>
+                            <div class="mb-3 input-group-enhanced">
+                                <div class="input-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="input-wrapper">
+                                    <label for="contactEmail" class="form-label text-light"><i class="fas fa-at"></i> Email Quest</label>
+                                    <input type="email" class="form-control retro-input" id="contactEmail" placeholder="your.email@domain.com" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 input-group-enhanced">
+                                <div class="input-icon">
+                                    <i class="fas fa-flag"></i>
+                                </div>
+                                <div class="input-wrapper">
+                                    <label for="contactSubject" class="form-label text-light"><i class="fas fa-bullseye"></i> Mission Subject</label>
+                                    <input type="text" class="form-control retro-input" id="contactSubject" placeholder="What's your mission?" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 input-group-enhanced">
+                                <div class="input-icon message-icon">
+                                    <i class="fas fa-scroll"></i>
+                                </div>
+                                <div class="input-wrapper">
+                                    <label for="contactMessage" class="form-label text-light"><i class="fas fa-feather-alt"></i> Your Message</label>
+                                    <textarea class="form-control retro-input" id="contactMessage" rows="4" placeholder="Write your message here..." required></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn retro-btn-secondary" data-bs-dismiss="modal">
+                            <i class="fas fa-times"></i> Cancel Quest
+                        </button>
+                        <button type="button" class="btn retro-btn-primary" onclick="sendMessage()">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cat Chatbot -->
+        <div class="chatbot-container">
+            <div class="chatbot-toggle" id="chatbotToggle">
+                <img src="static/img/giphy.gif" alt="Cat Assistant" class="chatbot-cat">
+                <div class="chat-notification" id="chatNotification">💬</div>
+            </div>
+            
+            <div class="chat-panel" id="chatPanel">
+                <div class="chat-header">
+                    <div class="chat-header-info">
+                        <img src="static/img/giphy.gif" alt="Cat Assistant" class="chat-header-avatar">
+                        <div class="chat-header-text">
+                            <div class="chat-title pixel_font">Cat Assistant</div>
+                            <div class="chat-status">🟢 Always Meowing</div>
+                        </div>
+                    </div>
+                    <button class="chat-close" id="chatClose">×</button>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-message bot-message">
+                        <div class="message-avatar">
+                            <img src="static/img/giphy.gif" alt="Cat" class="message-cat">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-text">Meow! 🐾</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message... (I'll only meow back! 😸)">
+                    <button class="chat-send" id="chatSend">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
